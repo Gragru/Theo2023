@@ -1,8 +1,9 @@
 setInterval(updateDistance, 2000)
 let playerLat, playerLon, playerDistance, tLat, tLon
-let distanceTolerance =5
+let distanceTolerance = 5
 let gamePosition = 0;
 let counter = 0;
+let points = 0;
 
 nextPlace()
 

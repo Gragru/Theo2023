@@ -4,7 +4,7 @@ const adventure = [
         text: "Nu börjar det!", 
         clue: "", 
         lat: 59.32279544524491, 
-        lon: 17.99007936691471 
+        lon: 17.99007936691471
     },
     {
         name:"Köket", 
