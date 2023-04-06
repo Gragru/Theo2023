@@ -2,6 +2,7 @@ setInterval(updateDistance, 1000)
 let playerLat, playerLon, playerDistance, tLat, tLon
 let distanceTolerance = 4
 let gamePosition = 0;
+let counter = 0;
 
 nextPlace()
 
@@ -16,7 +17,8 @@ function nextPlace()
 function updateDistance()
 {
 
-
+    counter++;
+    document.getElementById("counter").innerHTML = counter
 
     let d = document.getElementById("distance")
 
