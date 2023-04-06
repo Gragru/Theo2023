@@ -15,8 +15,7 @@ function nextPlace() {
 
 function updateDistance() {
 
-    counter++;
-    document.getElementById("counter").innerHTML = counter
+
 
     let d = document.getElementById("distance")
 
@@ -59,6 +58,8 @@ function getPosition(position) {
     playerLat = position.coords.latitude
     playerLon = position.coords.longitude
     playerDistance = distance(playerLat, playerLon, tLat, tLon, "M")
+    counter++;
+    document.getElementById("counter").innerHTML = counter
 }
 
 
