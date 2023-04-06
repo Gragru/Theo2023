@@ -11,7 +11,10 @@ function savepos()
 {
     let desc = document.getElementById("description").value;
     let url = "http://primat.se/services/sendform.aspx?xid=place_" +desc + "&xmail=micke@abc.se&lat=" + playerLat + "&lon=" + playerLon
-    fetch("https://cors-anywhere.herokuapp.com/" + url)
+    document.getElementById("sendlink").src=url
+    
+    
+    //fetch("https://cors-anywhere.herokuapp.com/" + url)
     console.log(url)
 }
 
