@@ -1,6 +1,6 @@
 setInterval(updateDistance, 500)
 let playerLat, playerLon, playerDistance, tLat, tLon
-
+let distanceTolerance = 4
 let gamePosition = 0;
 
 nextPlace()
@@ -36,6 +36,19 @@ function updateDistance()
 
 
     d.innerHTML = playerDistance
+    let game = document.getElementById("game")
+    if(distance < distanceTolerance)
+    {
+        // Hittat platsen
+        if(adventure[gamePosition].type === "ok")
+        {
+            game.innerHTML = adventure[gamePosition].text
+        }
+    }
+    else
+    {
+        game.innerHTML = "Inte framme än"
+    }
 
     document.getElementById("lat").innerHTML = playerLat
     document.getElementById("lon").innerHTML = playerLon
