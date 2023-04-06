@@ -1,6 +1,6 @@
 setInterval(updateDistance, 2000)
 let playerLat, playerLon, playerDistance, tLat, tLon
-let distanceTolerance = 4
+let distanceTolerance =5
 let gamePosition = 0;
 let counter = 0;
 
@@ -12,13 +12,19 @@ function nextPlace() {
     console.log(tLat, tLon)
 }
 
+function incrementPlace()
+{
+    gamePosition++
+}
+
+function showclue()
+{
+    document.getElementById("clue").innerHTML = adventure[gamePosition].clue
+}
 
 function updateDistance() {
 
-
-
     let d = document.getElementById("distance")
-
 
     if (navigator.geolocation) {
 
@@ -35,14 +41,37 @@ function updateDistance() {
 
     d.innerHTML = playerDistance
     let game = document.getElementById("game")
-    if (distance < distanceTolerance) {
+    console.log(playerDistance, distanceTolerance)
+    
+    if (playerDistance <= distanceTolerance) {
         // Hittat platsen
+        game.innerHTML = ""
+        
         if (adventure[gamePosition].type === "ok") {
-            game.innerHTML = adventure[gamePosition].text
+
+            let name = document.createElement("h3")
+            name.innerHTML = adventure[gamePosition].name
+            game.appendChild(name)
+
+            let text = document.createElement("h4")
+            text.innerHTML = adventure[gamePosition].text
+            game.appendChild(text)
+
+            let okButton = document.createElement("input")
+            okButton.type = "button"
+            okButton.value = "Nästa plats"
+            okButton.setAttribute("onclick", "incrementPlace(); showclue()")
+            game.appendChild(okButton)
+
+
+
+
+            // game.innerHTML = adventure[gamePosition].text
+            
         }
     }
     else {
-        game.innerHTML = "Inte framme än"
+        
     }
 
     document.getElementById("lat").innerHTML = playerLat
@@ -57,13 +86,13 @@ let places = ""
 function getPosition(position) {
     playerLat = position.coords.latitude
     playerLon = position.coords.longitude
-    playerDistance = distance(playerLat, playerLon, tLat, tLon, "M")
+    playerDistance = getDistance(playerLat, playerLon, tLat, tLon, "M")
     counter++;
     document.getElementById("counter").innerHTML = counter
 }
 
 
-function distance(lat1, lon1, lat2, lon2, unit) {
+function getDistance(lat1, lon1, lat2, lon2, unit) {
 
     var radlat1 = Math.PI * lat1 / 180
     var radlat2 = Math.PI * lat2 / 180

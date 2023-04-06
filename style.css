@@ -1,3 +1,11 @@
 body{
     background-color: yellow;
 }
+
+.clue, .distance, .game{
+    font-size: 32px;
+    border: 2px solid green;
+    padding: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
