@@ -1,4 +1,4 @@
-setInterval(updateDistance, 500)
+setInterval(updateDistance, 1000)
 let playerLat, playerLon, playerDistance, tLat, tLon
 let distanceTolerance = 4
 let gamePosition = 0;
